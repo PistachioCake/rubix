@@ -48,7 +48,7 @@ cabal-version:       >=1.10
 
 library
   -- Modules exported by the library.
-  -- exposed-modules:
+  exposed-modules: Rubix
 
   -- Modules included in this library but not exported.
   -- other-modules:
@@ -57,19 +57,21 @@ library
   -- other-extensions:
 
   -- Other library packages from which modules are imported.
-  build-depends:       base >=4.11 && <4.12
+  build-depends:       base >=4.11 && <4.12, 
+                       lens
 
   -- Directories containing source files.
-  -- hs-source-dirs:
+  hs-source-dirs: src/rubix
 
   -- Base language which the package is written in.
   default-language:    Haskell2010
 
 test-suite spec
   type:                 exitcode-stdio-1.0
-  hs-source-dirs:       tests/rubix, src/rubix
-  main-is:              RubixTests.hs
+  hs-source-dirs:       test, src/rubix
+  main-is:              Spec.hs
   build-depends:        base >=4.11 && <4.12, 
-                        hspec,
+                        hspec, lens, 
                         rubix
+  other-modules:        Rubix
   default-language:     Haskell2010
