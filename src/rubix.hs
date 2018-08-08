@@ -1,6 +1,11 @@
 {-# LANGUAGE DeriveFunctor, TemplateHaskell #-}
 
-module Rubix where
+module Rubix (
+    Color, Side, Cube,
+    solved, apply, 
+    turnF, turnU, turnR, turnD, turnL, turnB, 
+    unsafeMkCube
+)where
 
 import Control.Lens
 
@@ -45,6 +50,7 @@ data Cube = Cube {
   _back  :: Face
 } deriving (Show, Eq)
 
+solved :: Cube
 solved = Cube (Side White  White  White  White  White  White  White  White  White )
               (Side Blue   Blue   Blue   Blue   Blue   Blue   Blue   Blue   Blue  )
               (Side Red    Red    Red    Red    Red    Red    Red    Red    Red   )

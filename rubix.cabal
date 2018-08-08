@@ -61,17 +61,20 @@ library
                        lens
 
   -- Directories containing source files.
-  hs-source-dirs: src/rubix
+  hs-source-dirs: src
 
   -- Base language which the package is written in.
   default-language:    Haskell2010
 
+  ghc-options:         -Wall
+
 test-suite spec
   type:                 exitcode-stdio-1.0
-  hs-source-dirs:       test, src/rubix
+  hs-source-dirs:       test, src
   main-is:              Spec.hs
   build-depends:        base >=4.11 && <4.12, 
                         hspec, lens, 
                         rubix
   other-modules:        Rubix
   default-language:     Haskell2010
+  build-tool-depends: hspec-discover:hspec-discover == 2.*
